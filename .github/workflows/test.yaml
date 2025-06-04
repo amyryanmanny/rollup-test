@@ -1,3 +1,4 @@
+name: 'Test Template Rendering'
 on:
   workflow_dispatch:
 
@@ -6,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Template
         id: template
@@ -15,7 +16,7 @@ jobs:
           GITHUB_PAT_TOKEN: ${{ secrets.TEST_PAT }}
           INPUT_TLDR_PROMPT: 'This is just a test, do whatever you want. Make it spicy!!!'
         with:
-          template: './templates/test_template'
+          template: './templates/main.md.vto'
 
       - name: Echo
         run: echo "${{ steps.template.outputs.md }}"
