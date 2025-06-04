@@ -1,0 +1,21 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Template
+        id: template
+        uses: amyryanmanny/rollup-n-up-n-up/render@main
+        env:
+          GITHUB_PAT_TOKEN: ${{ secrets.TEST_PAT }}
+          INPUT_TLDR_PROMPT: 'This is just a test, do whatever you want. Make it spicy!!!'
+        with:
+          template: './templates/test_template'
+
+      - name: Echo
+        run: echo "${{ steps.template.outputs.md }}"
