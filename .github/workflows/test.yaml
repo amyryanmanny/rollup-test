@@ -14,7 +14,7 @@ jobs:
         uses: amyryanmanny/rollup-n-up-n-up/render@main
         env:
           GITHUB_PAT_TOKEN: ${{ secrets.TEST_PAT }}
-          INPUT_TLDR_PROMPT: 'This is just a test, do whatever you want. Make it spicy!!!'
+          INPUT_TLDR_PROMPT: 'Give me a simple summary. Content is as follows: {{ CONTENT }}'
         with:
           template: './templates/main.md.vto'
 
