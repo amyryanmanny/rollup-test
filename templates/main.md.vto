@@ -6,7 +6,7 @@
 
 ## Initiative Details
 
-{{ set synapseInitiatives = await client.issuesForProject("github", 21922, "Initiative", "Project Layer").all() }}
+{{ set synapseInitiatives = await github.issuesForProject("github", 21922, "Initiative") }}
 
 {{ for issue of synapseInitiatives }}
 ### {{ issue.title() }}
@@ -14,4 +14,4 @@
 {{- update.renderBody() -}}
 {{ /for }}
 
-{{ hoist TLDR = await client.renderSummary("TLDR_PROMPT") }}
+{{ hoist TLDR = await memory.renderSummary("TLDR_PROMPT") }}
